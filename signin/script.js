@@ -50,8 +50,8 @@ for (const key in fields) {
 
 function loginUser(){
     let hasError = false;
-    const email = emailInput.val();
-    const password = passwordInput.val();
+    const email = emailInput.val().trim().toLowerCase();
+    const password = passwordInput.val().trim();
 
     for (const key in fields) {
         const errorMsg = validate(fields[key]);

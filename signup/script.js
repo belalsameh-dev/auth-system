@@ -76,11 +76,16 @@ function alreadyExists(email) {
   return users.find((user) => user.email === email);
 }
 
+function capitalize(str) {
+  return str.split(" ").map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+}
+
 // Add a new user
 function addNewUser() {
   let hasError = false;
+  const email = emailInput.val().trim().toLowerCase();
 
-  if (alreadyExists(emailInput.val().trim())) {
+  if (alreadyExists(email)) {
     $(".alert").removeClass("d-none").text("User already exists.");
     return;
   } else {
@@ -105,19 +110,18 @@ function addNewUser() {
   if (hasError) return;
 
   const user = {
-    name: nameInput.val().trim(),
-    email: emailInput.val().trim(),
+    name: capitalize(nameInput.val().trim()),
+    email,
     password: passwordInput.val(),
   };
 
   users.push(user);
   localStorage.setItem("users", JSON.stringify(users));
-  console.log(users);
 
   // Clear form
   $("form")[0].reset();
 
   // Redirect to login page
-    location.href = "../signin/index.html";
+  location.href = "../signin/index.html";
 }
 signUpBtn.click(addNewUser);
