@@ -7,8 +7,10 @@
 }
 
 :root {
-    --main-color: #17A2B8;
-    --sec-color: #24353F
+    --info: #0DCAF0;
+    --dark-info: #17A2B8;
+    --main-color: #24353F;
+    --white-color: #f1f1f1;
 }
 
 body {
@@ -18,7 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--sec-color);
+    background-color: var(--main-color);
 }
 
 .form-container {
@@ -47,11 +49,11 @@ body {
 }
 
 .link a{
-    color: var(--main-color);
+    color: var(--dark-info);
     text-decoration: none;
 }
 
 .link a:hover {
-    color: #0DCAF0;
+    color: var(--info);
     text-decoration: underline;
 }
