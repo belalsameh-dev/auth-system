@@ -7,8 +7,11 @@
 }
 
 :root {
+    --info-color: #0DCAF0;
     --main-color: #17A2B8;
-    --sec-color: #24353F
+    --second-color: #24353F;
+    --white-color: #f1f1f1;
+    --shadow: rgba(0, 0, 0, 0.22);
 }
 
 body {
@@ -17,20 +20,54 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--sec-color);
+    background-color: var(--second-color);
     position: relative;
 }
 
-.btn {
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
     position: absolute;
-    top: 30px;
-    right: 30px;
-    transition: all 0.5s;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0px 5px 10px var(--shadow);
 }
 
-@media (min-width: 800px) {
+.logo {
+    color: var(--white-color);
+    font-size: 1.45rem;
+    font-weight: bolder;
+    position: relative;
+    cursor: pointer;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    bottom: 3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #0DCAF0;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+
     .btn {
-        padding: 8px 14px;
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
     }
 }
 
@@ -38,8 +75,8 @@ body {
     width: min(600px, 85%);
     height: 255px;
     background: rgba(36, 53, 63, 0.58);
-    border: 1px solid white;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--white-color);
+    box-shadow: 12px 17px 51px var(--shadow);
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;
@@ -50,12 +87,12 @@ body {
     align-items: center;
     user-select: none;
     font-weight: bolder;
-    color: #fff;
+    color: var(--white-color);
 }
 
 .card:hover {
-    color: #17A2B8;
-    border: 1px solid #17A2B8;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
     transform: scale(1.05);
 }
 
